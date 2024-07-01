@@ -11,9 +11,11 @@ namespace Trabalho_Paulo
         public int Cilindrada { get; set; }
         public int Ano { get; set; }
         public string Marca { get; set; }
+
+        public void ExibirDetalhesMoto()
+        {
+
+        }
     }
-    public void ExibirDetalhesMoto() 
-    {
-        
-    }
+    
 }
