@@ -12,4 +12,8 @@ namespace Trabalho_Paulo
         public int Ano { get; set; }
         public string Marca { get; set; }
     }
+    public void ExibirDetalhesMoto() 
+    {
+        
+    }
 }
