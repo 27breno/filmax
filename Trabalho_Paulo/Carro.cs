@@ -15,6 +15,10 @@ namespace Trabalho_Paulo
         public string Marca { get; set; }
 
     }
+    public void ExibirDetalhesCarro()
+    {
 
-    
+    }
+
+
 }
