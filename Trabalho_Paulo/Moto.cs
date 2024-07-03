@@ -11,10 +11,17 @@ namespace Trabalho_Paulo
         public int Cilindrada { get; set; }
         public int Ano { get; set; }
         public string Marca { get; set; }
+        public string Cor { get; set; }
+        public string Placa { get; set; }
 
         public void ExibirDetalhesMoto()
         {
-
+            Console.WriteLine("----------------------");
+            Console.WriteLine($"Cilindrada:{Cilindrada}");
+            Console.WriteLine($"Ano:{Ano}");
+            Console.WriteLine($"Marca:{Marca}");
+            Console.WriteLine($"Cor:{Cor}");
+            Console.WriteLine($"Placa:{Placa}");
         }
     }
     
