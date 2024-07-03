@@ -13,11 +13,18 @@ namespace Trabalho_Paulo
         public int QuantidadePortas { get; set; }
         public int Ano { get; set; }
         public string Marca { get; set; }
+        public string Cor { get; set; }
+        public string Placa { get; set; }
 
 
     public void ExibirDetalhesCarro()
     {
-            
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine($"Ano:{Ano}");
+            Console.WriteLine($"Marca:{Marca}");
+            Console.WriteLine($"Quantidade de Portas:{QuantidadePortas}");
+            Console.WriteLine($"Cor:{Cor}");
+            Console.WriteLine($"Placa:{Placa}");
     }
 
     }
