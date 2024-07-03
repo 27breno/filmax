@@ -17,7 +17,7 @@ namespace Trabalho_Paulo
 
     public void ExibirDetalhesCarro()
     {
-            Console.WriteLine("BMW!");
+            
     }
 
     }
