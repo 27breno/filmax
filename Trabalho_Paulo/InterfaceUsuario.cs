@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Trabalho_Paulo
 {
-
     public class InterfaceUsuario
     {
         private Estacionamento estacionamento;
@@ -22,12 +21,11 @@ namespace Trabalho_Paulo
             while (!sair)
             {
                 Console.WriteLine("=== Menu ===");
-                Console.WriteLine("1. Listar vagas disponíveis e ocupadas");
-                Console.WriteLine("2. Reservar vaga para carro");
-                Console.WriteLine("3. Reservar vaga para moto");
-                Console.WriteLine("4. Adicionar veículo");
-                Console.WriteLine("5. Mostrar histórico de vagas ocupadas");
-                Console.WriteLine("6. Sair");
+                Console.WriteLine("1. Listar Vagas Totais");
+                Console.WriteLine("2. Reservar Vagas");
+                Console.WriteLine("2. Adicionar veículo");
+                Console.WriteLine("3. Mostrar istórico ");
+                Console.WriteLine("4. Sair");
                 Console.Write("Escolha uma opção: ");
 
                 string opcao = Console.ReadLine();
@@ -36,33 +34,24 @@ namespace Trabalho_Paulo
                 switch (opcao)
                 {
                     case "1":
-                        estacionamento.ListarVagas();
+                        estacionamento.ExibirVagas();
                         break;
 
                     case "2":
-                        estacionamento.ReservarVaga("Carro");
+                        estacionamento.ReservarVagas();
                         break;
 
                     case "3":
-                        estacionamento.ReservarVaga("Moto");
+                      
+                        estacionamento.AdicionarVeiculo();
                         break;
 
-                    case "4":
-                        Console.Write("Digite o tipo de veículo (Carro ou Moto): ");
-                        string tipo = Console.ReadLine();
-                        Console.Write("Digite o modelo do veículo: ");
-                        string modelo = Console.ReadLine();
-                        Console.Write("Digite a cor do veículo: ");
-                        string cor = Console.ReadLine();
 
-                        estacionamento.AdicionarVeiculo(tipo, modelo, cor);
+                    case "4":
+                        estacionamento.Historico.MostrarHistorico();
                         break;
 
                     case "5":
-                        estacionamento.MostrarHistoricoVagas();
-                        break;
-
-                    case "6":
                         sair = true;
                         break;
 
