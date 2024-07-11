@@ -8,24 +8,26 @@ using System.Threading.Tasks;
 
 namespace Trabalho_Paulo
 {
-    public class Carro
+
+    public class Carro : Veiculo
     {
-        public int QuantidadePortas { get; set; }
-        public int Ano { get; set; }
-        public string Marca { get; set; }
-        public string Cor { get; set; }
-        public string Placa { get; set; }
 
 
-    public void ExibirDetalhesCarro()
-    {
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine($"Ano:{Ano}");
-            Console.WriteLine($"Marca:{Marca}");
-            Console.WriteLine($"Quantidade de Portas:{QuantidadePortas}");
-            Console.WriteLine($"Cor:{Cor}");
-            Console.WriteLine($"Placa:{Placa}");
-    }
+        public int Id { get; }
+        public string Tipo { get; }
+        public string Modelo { get; }
+        public string Cor { get; }
 
+        public Carro(int id, string tipo, string modelo, string cor)
+          : base(id, tipo, modelo, cor)
+        {
+            Cor = cor;
+        }
+
+
+        public override string ToString()
+        {
+            return $"ID: {Id}, Modelo: {Modelo}, Cor: {Cor}";
+        }
     }
 }
