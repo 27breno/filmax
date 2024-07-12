@@ -94,12 +94,35 @@ namespace Trabalho_Paulo
             {
                 valorcarro= (valorcarro - 0.10);
                 Console.WriteLine($"Valor total $200.00, Cupon de 10% adicionado {valorcarro}");
-            }
-
-
         }
 
-       
+        public void MiniMenu()
+        {
+
+            Console.WriteLine(" Primeiro voce terá que cadastrar em nosso sistema, para que assim soltaremos o seu desconto ");
+
+            Console.WriteLine("voce deseja se cadastrar? s/n ");
+
+            char opcao = 's';
+
+            char opcao2 = 'n';
+            
+
+            if (opcao  == 's')
+            {
+
+                cadastrar();
+
+                Console.WriteLine("seu cadastro foi um sucesso !!! siga em frente para que libere o ");
+
+               
+            }
+            else if (opcao2 == 'n')
+            {
+
+            }
+
+        }
 
          
 }

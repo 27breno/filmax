@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
-using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Trabalho_Paulo
 {
 
-    public class Veiculo
+    public class Carro : Veiculo
     {
+
+
         public int Id { get; }
         public string Tipo { get; }
         public string Modelo { get; }
         public string Cor { get; }
 
-        public Veiculo(int id, string tipo, string modelo, string cor)
+        public Carro(int id, string tipo, string modelo, string cor)
+          : base(id, tipo, modelo, cor)
         {
-            Id = id;
-            Tipo = tipo;
-            Modelo = modelo;
             Cor = cor;
         }
 
-        public virtual string ToString()
+
+        public override string ToString()
         {
-            return $"ID: {Id}, Tipo: {Tipo}, Modelo: {Modelo}, Cor: {Cor}";
+            return $"ID: {Id}, Modelo: {Modelo}, Cor: {Cor}";
         }
     }
 }
-

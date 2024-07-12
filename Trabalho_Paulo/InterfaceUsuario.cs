@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace Trabalho_Paulo
 {
-
     public class InterfaceUsuario
     {
-        private Estacionamento estacionamento;
+        private Estacionamento estacionamento; 
 
-        public InterfaceUsuario(Estacionamento estacionamento)
+        private ImplementarDesconto desconto;
+
+        public InterfaceUsuario()
         {
             this.estacionamento = new Estacionamento(10); 
             this.desconto = new ImplementarDesconto(4, "bre", 123456789, 12134);
         }
+
 
         public void Iniciar()
         {
@@ -23,11 +25,11 @@ namespace Trabalho_Paulo
             while (!sair)
             {
                 Console.WriteLine("=== Menu ===");
-                Console.WriteLine("1. Listar vagas disponíveis e ocupadas");
-                Console.WriteLine("2. Reservar vaga para carro");
-                Console.WriteLine("3. Reservar vaga para moto");
+                Console.WriteLine("1. Listar Vagas Totais");
+                Console.WriteLine("2. Aplicar desconto");
+                Console.WriteLine("3. Reservar Vagas");
                 Console.WriteLine("4. Adicionar veículo");
-                Console.WriteLine("5. Mostrar histórico de vagas ocupadas");
+                Console.WriteLine("5. Mostrar Histórico ");
                 Console.WriteLine("6. Sair");
                 Console.Write("Escolha uma opção: ");
 
@@ -37,30 +39,25 @@ namespace Trabalho_Paulo
                 switch (opcao)
                 {
                     case "1":
-                        estacionamento.ListarVagas();
+                        estacionamento.ExibirVagas();
                         break;
 
-                    case "2":
-                        estacionamento.ReservarVaga("Carro");
+                        case "2":
+                       desconto.MiniMenu();
                         break;
 
                     case "3":
-                        estacionamento.ReservarVaga("Moto");
+                        estacionamento.ReservarVagas();
                         break;
 
                     case "4":
-                        Console.Write("Digite o tipo de veículo (Carro ou Moto): ");
-                        string tipo = Console.ReadLine();
-                        Console.Write("Digite o modelo do veículo: ");
-                        string modelo = Console.ReadLine();
-                        Console.Write("Digite a cor do veículo: ");
-                        string cor = Console.ReadLine();
-
-                        estacionamento.AdicionarVeiculo(tipo, modelo, cor);
+                      
+                        estacionamento.AdicionarVeiculo();
                         break;
 
+
                     case "5":
-                        estacionamento.MostrarHistoricoVagas();
+                        estacionamento.Historico.MostrarHistorico();
                         break;
 
                     case "6":
