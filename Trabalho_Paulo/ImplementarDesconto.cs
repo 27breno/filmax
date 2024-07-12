@@ -14,7 +14,7 @@ namespace Trabalho_Paulo
         public int CPF { get; set; }
         public int CEP { get; set; }
 
-        public ImplementarDesconto(long id, string name, int cpf, int cep )
+        public ImplementarDesconto(long id, string name, int cpf, int cep)
         {
             Id = id;
             Name = name;
@@ -27,11 +27,11 @@ namespace Trabalho_Paulo
             bool sair = false;
 
 
-         
+
             Console.WriteLine(" Primeiro voce terá que cadastrar em nosso sistema, para que assim soltaremos o seu desconto ");
 
             Console.WriteLine("voce deseja se cadastrar? sim / não ");
-            string  opcao = Console.ReadLine();
+            string opcao = Console.ReadLine();
 
 
             switch (opcao)
@@ -62,68 +62,52 @@ namespace Trabalho_Paulo
             Name = Console.ReadLine();
 
             Console.WriteLine("digite seu CPF ");
-            CPF = int.Parse (Console.ReadLine());
+            CPF = int.Parse(Console.ReadLine());
 
             Console.WriteLine("digite seu CEP");
-            CEP = int.Parse (Console.ReadLine());
+            CEP = int.Parse(Console.ReadLine());
 
         }
         public void Desconto()
         {
             Console.WriteLine("Escolha ums das duas opções e veja o cupon que será disponibilizado");
 
-          
+
 
             double valormoto = 140.90;
 
             double valorcarro = 200.00;
 
             Console.WriteLine("1. Para a moto ");
-           
+
             Console.WriteLine("2. Para o carro ");
 
-            int opcao = int.Parse(Console.ReadLine());
+            int acao = int.Parse(Console.ReadLine());
 
-            if (opcao==1)
+
+
+            switch (acao)
+
             {
-                valormoto = (valormoto - 0.5);
+                case 1:
 
-                Console.WriteLine($"Valor total $140.00, Cupon de 5% adicionado {valormoto}");
-            }
-            else if (opcao==1)
-            {
-                valorcarro= (valorcarro - 0.10);
-                Console.WriteLine($"Valor total $200.00, Cupon de 10% adicionado {valorcarro}");
-        }
+                    valormoto = (valormoto - 0.5);
 
-        public void MiniMenu()
-        {
+                    Console.WriteLine($"Valor total $140.00, Cupon de 5% adicionado ${valormoto}");
 
-            Console.WriteLine(" Primeiro voce terá que cadastrar em nosso sistema, para que assim soltaremos o seu desconto ");
+                    break;
 
-            Console.WriteLine("voce deseja se cadastrar? s/n ");
+                case 2:
 
-            char opcao = 's';
+                    valorcarro = (valorcarro - 0.10);
+                    Console.WriteLine($"Valor total $200.00, Cupon de 10% adicionado {valorcarro}");
 
-            char opcao2 = 'n';
-            
-
-            if (opcao  == 's')
-            {
-
-                cadastrar();
-
-                Console.WriteLine("seu cadastro foi um sucesso !!! siga em frente para que libere o ");
-
-               
-            }
-            else if (opcao2 == 'n')
-            {
+                    break;
 
             }
+
 
         }
+    }
+}
 
-         
-}
-}
