@@ -1,30 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
-using System.Numerics;
-using System.Reflection;
-using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Trabalho_Paulo
 {
-    public class Carro:Veiculo 
+    public class Carro
     {
-    
-        public string Placa { get; }
+        public int QuantidadePortas { get; set; }
+        public int Ano { get; set; }
+        public string Marca { get; set; }
+        public string Cor { get; set; }
+        public string Placa { get; set; }
 
-        public Carro(int id, string modelo, string cor, string placa)
-             :base(id, modelo, cor, placa)
-        {
-           
-            Placa = placa;
-        }
 
-        public override string ToString()
-        {
-            return $"ID: {Id}, Modelo: {Modelo}, Cor: {Cor}, Placa: {Placa}";
-        }
+    public void ExibirDetalhesCarro()
+    {
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine($"Ano:{Ano}");
+            Console.WriteLine($"Marca:{Marca}");
+            Console.WriteLine($"Quantidade de Portas:{QuantidadePortas}");
+            Console.WriteLine($"Cor:{Cor}");
+            Console.WriteLine($"Placa:{Placa}");
     }
 
+    }
 }
