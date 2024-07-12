@@ -61,12 +61,16 @@ namespace Trabalho_Paulo
         public void MiniMenu()
         {
 
-            string opcao = Console.ReadLine();
-            Console.WriteLine();
+            string opcao;
 
-            switch (opcao)
+            Console.WriteLine("1. digite este caso queira cadastrar em nosso sistema");
+
+            Console.WriteLine("2. para receber seu desconto ");
+            opcao = Console.ReadLine(); 
+
+            if (opcao == 1)
             {
-                case "1":
+               
                     cadastrar();
 
                     break;

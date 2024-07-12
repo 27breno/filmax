@@ -86,10 +86,6 @@ namespace Trabalho_Paulo
         {
 
             {
-                
-
-
-
                 Console.WriteLine("\n    vagas");
                 Console.Write("  ");
                 for (int i = 1; i <= vagas.GetLength(1); i++)
@@ -155,9 +151,36 @@ namespace Trabalho_Paulo
                     maisvagas = char.ToLower(Console.ReadKey().KeyChar);
                     Console.WriteLine();
                 } while (maisvagas == 's');
+                Console.WriteLine("\n    Vagas Após Reserva");
+                Console.Write("  ");
+                for (int i = 1; i <= vagas.GetLength(1); i++)
+                {
+                    Console.Write($" {i.ToString().PadLeft(2)}");
+                }
+                Console.WriteLine();
 
-                Console.WriteLine("\n Vaga selecionada : " + vagasSelecionadas);
+                for (int i = 0; i < vagas.GetLength(0); i++)
+                {
+                    Console.Write($"{(char)('A' + i)} ");
+                    for (int j = 0; j < vagas.GetLength(1); j++)
+                    {
+                        if (vagas[i, j])
+                        {
+                            Console.Write(" X");
+                        }
+                        else
+                        {
+                            Console.Write(" -");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine("\nVagas selecionadas: " + vagasSelecionadas);
             }
+
+           
+            
         }
     
     

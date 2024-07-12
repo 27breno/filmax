@@ -15,7 +15,7 @@ namespace Trabalho_Paulo
         public InterfaceUsuario()
         {
             this.estacionamento = new Estacionamento(10); 
-            this.desconto = new ImplementarDesconto(4, "breno", 121322, 12134);
+            this.desconto = new ImplementarDesconto(4, "bre", 121322, 12134);
         }
 
 
@@ -43,7 +43,7 @@ namespace Trabalho_Paulo
                         break;
 
                         case "2":
-                        desconto.MiniMenu();
+                       desconto.MiniMenu();
                         break;
 
                     case "3":
