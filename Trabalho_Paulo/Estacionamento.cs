@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,11 +16,16 @@ namespace Trabalho_Paulo
         public List<Vaga> VagasDisponiveis { get; }
         public List<Vaga> VagasOcupadas { get; }
         public HistoricoVagas Historico { get; }
+        List<string> VagaPreenchida { get; set; }
 
         private int proximoIdVeiculo;
 
+        public bool[,] vagas { get; set; }
         public Estacionamento(int totalVagas)
         {
+            int numeroColunas = 10;
+            int numvagas = 10;
+            vagas = new bool[numeroColunas, numvagas];
             TotalVagas = totalVagas;
 
             VagasDisponiveis = new List<Vaga>();
@@ -30,7 +36,7 @@ namespace Trabalho_Paulo
 
             proximoIdVeiculo = 1;
 
-           
+
 
             // Inicializa as vagas do estacionamento
             for (int i = 1; i <= totalVagas; i++)
@@ -43,23 +49,19 @@ namespace Trabalho_Paulo
 
         public void ExibirVagas()
         {
-            // Exemplo: Matriz 5x5 de vagas
-            bool[,] vagas = new bool[5, 5]; // Matriz 5x5 de booleanos inicializada como falsa (vaga livre)
-            int numeroColunas = 5; // Número de colunas (no exemplo, são 5 colunas A, B, C, D, E)
-            int numvagas = 5; // Número de vagas (no exemplo, são 5 vagas numeradas de 1 a 5)
 
             Console.WriteLine("\n   Vagas");
             Console.Write("  ");
-            for (int i = 1; i <= numvagas; i++)
+            for (int i = 1; i <= vagas.GetLength(1); i++)
             {
                 Console.Write($" {i.ToString().PadLeft(2)}");
             }
             Console.WriteLine();
 
-            for (int i = 0; i < numeroColunas; i++)
+            for (int i = 0; i < vagas.GetLength(0); i++)
             {
                 Console.Write($"{(char)('A' + i)} ");
-                for (int j = 0; j < numvagas; j++)
+                for (int j = 0; j < vagas.GetLength(1); j++)
                 {
                     if (vagas[i, j])
                     {
@@ -72,80 +74,118 @@ namespace Trabalho_Paulo
                 }
                 Console.WriteLine();
             }
+
+
         }
+
+
+
 
 
         public void ReservarVagas()
         {
-            int numeroColunas = 10;
-            int numvagas = 20;
-            bool[,] vagas = new bool[numeroColunas, numvagas];
 
-
-          
-            Console.WriteLine("\n    Assentos");
-            Console.Write("  ");
-            for (int i = 1; i <= numvagas; i++)
             {
-                Console.Write($" {i.ToString().PadLeft(2)}");
-            }
-            Console.WriteLine();
-
-            for (int i = 0; i < numeroColunas; i++)
-            {
-                Console.Write($"{(char)('A' + i)} ");
-                for (int j = 0; j < numvagas; j++)
+                Console.WriteLine("\n    vagas");
+                Console.Write("  ");
+                for (int i = 1; i <= vagas.GetLength(1); i++)
                 {
-                    if (vagas[i, j])
+                    Console.Write($" {i.ToString().PadLeft(2)}");
+                }
+                Console.WriteLine();
+
+                for (int i = 0; i < vagas.GetLength(0); i++)
+                {
+                    Console.Write($"{(char)('A' + i)} ");
+                    for (int j = 0; j < vagas.GetLength(1); j++)
                     {
-                        Console.Write(" X");
+                        if (vagas[i, j])
+                        {
+                            Console.Write(" X");
+                        }
+                        else
+                        {
+                            Console.Write(" -");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+
+                // Escolha do assento
+                Console.WriteLine("\nAssentos disponíveis:");
+
+
+                string vagasSelecionadas = "";
+
+                char maisvagas;
+
+                do
+                {
+                    Console.Write("\nEscolha a vaga desejada (digite a letra da coluna seguida do número da vaga , ex: A1,B2,C3, e etc..): ");
+                    string escolhavaga = Console.ReadLine().ToUpper();
+
+                    VagaPreenchida.Add(escolhavaga);
+
+                    int colunaEscolhida = escolhavaga[0] - 'A'; // Convertendo a letra da coluna para um número correspondente ao índice
+                    int vagaEscolhida = int.Parse(escolhavaga.Substring(1)) - 1; // Pegando o número da cadeira (subtraindo 1 para ajustar ao índice do array)
+
+                    if (colunaEscolhida >= 0 && colunaEscolhida < vagas.GetLength(0) && vagaEscolhida >= 0 && vagaEscolhida < vagas.GetLength(1))
+                    {
+                        if (!vagas[colunaEscolhida, vagaEscolhida])
+                        {
+                            vagas[colunaEscolhida, vagaEscolhida] = true;
+                            vagasSelecionadas += $"{escolhavaga} ";
+                            Console.WriteLine($"Vaga {escolhavaga} reservada com sucesso!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Este Vaga já está reservada. Por favor, escolha outra Vaga.");
+                        }
                     }
                     else
                     {
-                        Console.Write(" -");
+                        Console.WriteLine("Vaga inválido. Por favor, escolha um assento válido.");
                     }
+
+                    Console.Write("Deseja reservar mais alguma vaga? (sim/n): ");
+                    maisvagas = char.ToLower(Console.ReadKey().KeyChar);
+                    Console.WriteLine();
+                } while (maisvagas == 's');
+                Console.WriteLine("\n    Vagas Após Reserva");
+                Console.Write("  ");
+                for (int i = 1; i <= vagas.GetLength(1); i++)
+                {
+                    Console.Write($" {i.ToString().PadLeft(2)}");
                 }
                 Console.WriteLine();
-            }
 
-            // Escolha do assento
-            Console.Write("\nEscolha o assento desejado (digite a letra da coluna seguida do número da cadeira, ex: A1): ");
-            string escolhaVagas = Console.ReadLine().ToUpper();
-
-            int colunaEscolhida = escolhaVagas[0] - 'A'; // Convertendo a letra da coluna para um número correspondente ao índice
-            int vagasEscolhida = int.Parse(escolhaVagas.Substring(1)); // Pegando o número da cadeira
-
-            if (colunaEscolhida >= 0 && colunaEscolhida < numeroColunas && vagasEscolhida >= 0 && vagasEscolhida < numvagas)
-            {
-                if (!vagas[colunaEscolhida, vagasEscolhida])
+                for (int i = 0; i < vagas.GetLength(0); i++)
                 {
-                    vagas[colunaEscolhida, vagasEscolhida] = true;
-                    Console.WriteLine($"Vagas {escolhaVagas} reservada com sucesso!");
+                    Console.Write($"{(char)('A' + i)} ");
+                    for (int j = 0; j < vagas.GetLength(1); j++)
+                    {
+                        if (vagas[i, j])
+                        {
+                            Console.Write(" X");
+                        }
+                        else
+                        {
+                            Console.Write(" -");
+                        }
+                    }
+                    Console.WriteLine();
                 }
-                else
-                {
-                    Console.WriteLine("Esta vaga já está reservado. Por favor, escolha outra vaga.");
-                }
+
+                Console.WriteLine("\nVagas selecionadas: " + vagasSelecionadas);
             }
-            else
-            {
-                Console.WriteLine("Vaga inválido. Por favor, escolha um vaga válido.");
-            }
-            // Perguntando se deseja reservar mais assentos
-            Console.Write("Deseja reservar mais algum assento? (s/n): ");
-            char maisAssentos = char.ToLower(Console.ReadKey().KeyChar);
 
-            while (maisAssentos == 's') ;
-
-
-
-
+           
+            
         }
+    
+    
 
-        
-
-
-        public void AdicionarVeiculo()
+    public void AdicionarVeiculo()
         {
             Console.WriteLine("=== Adicionar Veículo ===");
             Console.WriteLine("1. Adicionar Carro");
@@ -227,5 +267,6 @@ namespace Trabalho_Paulo
 
         }
     }
+
 }
 

@@ -23,7 +23,7 @@ namespace Trabalho_Paulo
             Cor = cor;
         }
 
-        public override string ToString()
+        public virtual string ToString()
         {
             return $"ID: {Id}, Tipo: {Tipo}, Modelo: {Modelo}, Cor: {Cor}";
         }

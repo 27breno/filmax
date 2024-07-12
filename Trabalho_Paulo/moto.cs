@@ -6,15 +6,23 @@ using System.Threading.Tasks;
 
 namespace Trabalho_Paulo
 {
-    public class Moto
+    public class Moto : Veiculo
     {
-        public int Cilindrada { get; set; }
-        public int Ano { get; set; }
-        public string Marca { get; set; }
-        public string Cor { get; set; }
-        public string Placa { get; set; }
 
-        public void ExibirDetalhesMoto()
+
+        public int Id { get; }
+        public string Tipo { get; }
+        public string Modelo { get; }
+        public string Cor { get; }
+
+        public Moto(int id, string tipo, string modelo, string cor) 
+          : base(id, tipo, modelo, cor)
+        {
+            Cor = cor;
+        }
+        
+        
+        public override string ToString()
         {
             Console.WriteLine("----------------------");
             Console.WriteLine($"Cilindrada:{Cilindrada}");
@@ -26,3 +34,5 @@ namespace Trabalho_Paulo
     }
     
 }
+
+
