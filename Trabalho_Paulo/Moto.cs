@@ -24,10 +24,15 @@ namespace Trabalho_Paulo
         
         public override string ToString()
         {
-            return $"ID: {Id}, Modelo: {Modelo}, Cor: {Cor}";
+            Console.WriteLine("----------------------");
+            Console.WriteLine($"Cilindrada:{Cilindrada}");
+            Console.WriteLine($"Ano:{Ano}");
+            Console.WriteLine($"Marca:{Marca}");
+            Console.WriteLine($"Cor:{Cor}");
+            Console.WriteLine($"Placa:{Placa}");
         }
     }
-
+    
 }
 
 
