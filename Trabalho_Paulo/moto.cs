@@ -1,23 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Trabalho_Paulo
 {
-    public class Moto:Veiculo
+    public class Moto
     {
-        public Moto(int id, string tipo, string modelo, string cor) : base(id, tipo, modelo, cor)
-        {
-        }
+        public int Cilindrada { get; set; }
+        public int Ano { get; set; }
+        public string Marca { get; set; }
+        public string Cor { get; set; }
+        public string Placa { get; set; }
 
-       
-        public override string ToString()
+        public void ExibirDetalhesMoto()
         {
-            return $"ID: {Id}, Modelo: {Modelo}, Cor: {Cor}";
+            Console.WriteLine("----------------------");
+            Console.WriteLine($"Cilindrada:{Cilindrada}");
+            Console.WriteLine($"Ano:{Ano}");
+            Console.WriteLine($"Marca:{Marca}");
+            Console.WriteLine($"Cor:{Cor}");
+            Console.WriteLine($"Placa:{Placa}");
         }
     }
-
+    
 }
