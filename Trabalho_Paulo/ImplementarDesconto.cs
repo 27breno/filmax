@@ -61,27 +61,27 @@ namespace Trabalho_Paulo
         public void MiniMenu()
         {
 
-            string opcao;
+            Console.WriteLine(" Primeiro voce terá que cadastrar em nosso sistema, para que assim soltaremos o seu desconto ");
 
-            Console.WriteLine("1. digite este caso queira cadastrar em nosso sistema");
+            Console.WriteLine("voce deseja se cadastrar? s/n ");
 
-            Console.WriteLine("2. para receber seu desconto ");
-            opcao = Console.ReadLine(); 
+            char opcao = 's';
 
-            if (opcao == 1)
+            char opcao2 = 'n';
+            
+
+            if (opcao  == 's')
             {
+
+                cadastrar();
+
+                Console.WriteLine("seu cadastro foi um sucesso !!! siga em frente para que libere o ");
+
                
-                    cadastrar();
+            }
+            else if (opcao2 == 'n')
+            {
 
-                    break;
-
-                case "2":
-                    Desconto();
-                    break;
-
-                default:
-                    Console.WriteLine("Opção inválida. Tente novamente.");
-                    break;
             }
 
         }
