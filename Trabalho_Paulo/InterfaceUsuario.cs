@@ -13,7 +13,8 @@ namespace Trabalho_Paulo
 
         public InterfaceUsuario(Estacionamento estacionamento)
         {
-            this.estacionamento = estacionamento;
+            this.estacionamento = new Estacionamento(10); 
+            this.desconto = new ImplementarDesconto(4, "bre", 123456789, 12134);
         }
 
         public void Iniciar()
