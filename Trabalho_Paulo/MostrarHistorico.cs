@@ -29,6 +29,7 @@ namespace Trabalho_Paulo
                 Console.WriteLine(vaga);
             }
             Console.WriteLine("----------------------------------\n");
+
         }
     }
 }
