@@ -34,7 +34,10 @@ namespace Trabalho_Paulo
 
             Historico = new HistoricoVagas();
 
-            proximoIdVeiculo = 1;
+            VagaPreenchida =new List<string>();
+
+
+           proximoIdVeiculo = 1;
 
 
 
@@ -147,7 +150,7 @@ namespace Trabalho_Paulo
                         Console.WriteLine("Vaga inválido. Por favor, escolha um assento válido.");
                     }
 
-                    Console.Write("Deseja reservar mais alguma vaga? (sim/n): ");
+                    Console.Write("Deseja reservar mais alguma vaga?  (s/n): ");
                     maisvagas = char.ToLower(Console.ReadKey().KeyChar);
                     Console.WriteLine();
                 } while (maisvagas == 's');

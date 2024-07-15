@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,16 +21,11 @@ namespace Trabalho_Paulo
         {
             Cor = cor;
         }
-        
-        
+
+
         public override string ToString()
         {
-            Console.WriteLine("----------------------");
-            Console.WriteLine($"Cilindrada:{Cilindrada}");
-            Console.WriteLine($"Ano:{Ano}");
-            Console.WriteLine($"Marca:{Marca}");
-            Console.WriteLine($"Cor:{Cor}");
-            Console.WriteLine($"Placa:{Placa}");
+            return $"ID: {Id}, Modelo: {Modelo}, Cor: {Cor}";
         }
     }
     

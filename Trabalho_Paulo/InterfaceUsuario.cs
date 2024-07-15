@@ -24,7 +24,7 @@ namespace Trabalho_Paulo
             bool sair = false;
             while (!sair)
             {
-                Console.WriteLine("=== Menu ===");
+                Console.WriteLine("--------- Menu ----------");
                 Console.WriteLine("1. Listar Vagas Totais");
                 Console.WriteLine("2. Aplicar desconto");
                 Console.WriteLine("3. Reservar Vagas");
