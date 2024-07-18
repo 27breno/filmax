@@ -57,7 +57,7 @@ namespace Trabalho_Paulo
 
 
                     case "5":
-                        estacionamento.Historico.MostrarHistorico();
+                        estacionamento.MostrarHistorico();
                         break;
 
                     case "6":

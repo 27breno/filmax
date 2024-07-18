@@ -16,6 +16,7 @@ namespace Trabalho_Paulo
         public string TipoVaga { get; }
 
         public Veiculo VeiculoEstacionado { get; private set; }
+       
 
         public Vaga(int id, string tipoVaga)
         {

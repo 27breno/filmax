@@ -28,7 +28,7 @@ namespace Trabalho_Paulo
 
 
 
-            Console.WriteLine(" Primeiro voce terá que cadastrar em nosso sistema, para que assim soltaremos o seu desconto ");
+            Console.WriteLine(" Primeiro voce terá que cadastrar em nosso sistema, para assim soltarmos o seu desconto ");
 
             Console.WriteLine("voce deseja se cadastrar? sim / não ");
             string opcao = Console.ReadLine();
@@ -74,7 +74,7 @@ namespace Trabalho_Paulo
 
 
 
-            double valormoto = 140.90;
+            double valormoto = 140.00;
 
             double valorcarro = 200.00;
 
