@@ -41,6 +41,7 @@ namespace Trabalho_Paulo
 
             VagaPreenchida =new List<string>();
 
+            historicos = new List<HistoricoVagas>();
 
            proximoIdVeiculo = 1;
             
@@ -86,7 +87,7 @@ namespace Trabalho_Paulo
 
             Console.WriteLine("\n------- Tabela de Preços ------------");
             Console.WriteLine("Veiculo  - Tempo - Preço");
-            Console.WriteLine("moto - 2 hora - R$ 140.90");
+            Console.WriteLine("moto - 2 hora - R$ 140.00");
             Console.WriteLine("carro - 2 horas - R$ 200.00");
           
 
@@ -127,7 +128,7 @@ namespace Trabalho_Paulo
                 }
 
                 // Escolha do assento
-                Console.WriteLine("\nAssentos disponíveis:");
+                Console.WriteLine("\nVagas disponíveis:");
 
 
                 string vagasSelecionadas = "";
@@ -145,7 +146,7 @@ namespace Trabalho_Paulo
                     int colunaEscolhida = escolhavaga[0] - 'A'; // Convertendo a letra da coluna para um número correspondente ao índice
                     int vagaEscolhida = int.Parse(escolhavaga.Substring(1)) - 1; // Pegando o número da cadeira (subtraindo 1 para ajustar ao índice do array)
 
-                    historicos.Add(new HistoricoVagas($"Vaga {colunaEscolhida},{vagaEscolhida}", "Não", "Sim", "Reservada"));
+                    
 
                     if (colunaEscolhida >= 0 && colunaEscolhida < vagas.GetLength(0) && vagaEscolhida >= 0 && vagaEscolhida < vagas.GetLength(1))
                     {
@@ -154,7 +155,7 @@ namespace Trabalho_Paulo
                             vagas[colunaEscolhida, vagaEscolhida] = true;
                             vagasSelecionadas += $"{escolhavaga} ";
                             Console.WriteLine($"Vaga {escolhavaga} reservada com sucesso!");
-                           
+                            historicos.Add(new HistoricoVagas($"Vaga {colunaEscolhida},{vagaEscolhida}", "Não", "Sim", "Reservada"));
                         }
                         else
                         {
@@ -251,13 +252,13 @@ namespace Trabalho_Paulo
             if (vaga != null && !vaga.Ocupada)
             {
                 Console.Write("Digite o modelo do carro (máximo de 20 caracteres): ");
-                Modelo = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 20));
+                Modelo = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 8));
 
                 Console.Write("Digite a cor do carro (máximo de 10 caracteres): ");
-                Cor = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 10));
+                Cor = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 4));
                 Console.Write("Digite a placa do carro (máximo de 11 caracteres): ");
 
-                Placa = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 11));
+                Placa = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 8));
 
                 Carro carro = new Carro(proximoIdVeiculo++, Modelo, Cor, Placa);
                 vaga.EstacionarVeiculo(carro);
