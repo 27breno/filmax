@@ -15,7 +15,7 @@ namespace Trabalho_Paulo
         public InterfaceUsuario()
         {
             this.estacionamento = new Estacionamento(10); 
-            this.desconto = new ImplementarDesconto(4, "bre", 121322, 12134);
+            this.desconto = new ImplementarDesconto(4, "bre", 123456789, 12134);
         }
 
 
@@ -24,7 +24,7 @@ namespace Trabalho_Paulo
             bool sair = false;
             while (!sair)
             {
-                Console.WriteLine("=== Menu ===");
+                Console.WriteLine("--------- Menu ----------");
                 Console.WriteLine("1. Listar Vagas Totais");
                 Console.WriteLine("2. Aplicar desconto");
                 Console.WriteLine("3. Reservar Vagas");
@@ -57,7 +57,7 @@ namespace Trabalho_Paulo
 
 
                     case "5":
-                        estacionamento.Historico.MostrarHistorico();
+                        estacionamento.MostrarHistorico();
                         break;
 
                     case "6":
