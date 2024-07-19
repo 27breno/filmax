@@ -165,7 +165,7 @@ namespace Trabalho_Paulo
                     }
                     else
                     {
-                        Console.WriteLine("Vaga inválido. Por favor, escolha um assento válido.");
+                        Console.WriteLine("Vaga inválido. Por favor, escolha uma vaga válida.");
                     }
                    
 
@@ -256,9 +256,9 @@ namespace Trabalho_Paulo
 
                 Console.Write("Digite a cor do carro (máximo de 10 caracteres): ");
                 Cor = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 4));
-                Console.Write("Digite a placa do carro (máximo de 11 caracteres): ");
 
-                Placa = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 8));
+                Console.Write("Digite a placa do carro (máximo de 11 caracteres): ");
+                Placa = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 11));
 
                 Carro carro = new Carro(proximoIdVeiculo++, Modelo, Cor, Placa);
                 vaga.EstacionarVeiculo(carro);
@@ -281,11 +281,11 @@ namespace Trabalho_Paulo
 
             if (vaga != null && !vaga.Ocupada)
             {
-                Console.Write("Digite o modelo do moto (máximo de 20 caracteres): ");
-                Modelo = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 20));
+                Console.Write("Digite o modelo do moto (máximo de 8 caracteres): ");
+                Modelo = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 8));
 
-                Console.Write("Digite a cor do moto (máximo de 10 caracteres): ");
-                Cor = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 10));
+                Console.Write("Digite a cor do moto (máximo de 4 caracteres): ");
+                Cor = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 4));
 
                 Console.Write("Digite a placa do moto (máximo de 11 caracteres): ");
                 Placa = Console.ReadLine().Substring(0, Math.Min(Console.ReadLine().Length, 11));
